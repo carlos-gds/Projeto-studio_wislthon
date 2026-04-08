@@ -1,0 +1,423 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio By Wislthon - Cabeleireiro Profissional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'agendamentos/styles.css' %}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="logo marca-nav">
+                <span class="logo-icone" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 3L5 7v2h2v8H5v2h4v-2H7v-2h2V9h2V7L9 3zm8 0l-4 4v2h2v8h-2v2h4v-2h-2v-2h2V9h2V7l-4-4z" fill="currentColor"/></svg>
+                </span>
+                <span class="logo-texto">Studio By Wislthon</span>
+            </a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="nav-link ativo">Início</a></li>
+                <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                <li><a href="#agendar" class="nav-link">Agendar</a></li>
+                <li><a href="#meus-agendamentos" class="nav-link">Meus agendamentos</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+                <li><a href="/admin" class="nav-link nav-admin" target="_blank" rel="noopener">Admin</a></li>
+            </ul>
+            <a href="#agendar" class="nav-cta">Agendar horário</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="heroi heroi-imagem">
+            <div class="heroi-bg" role="img" aria-label="Interior de salão de beleza"></div>
+            <div class="heroi-overlay"></div>
+            <div class="conteudo-heroi">
+                <h2>Studio By Wislthon</h2>
+                <p>23 anos de experiência em cortes, mechas e progressivas</p>
+                <div class="heroi-acoes">
+                    <button type="button" class="botao-cta" onclick="irParaAgendar()">Agendar horário</button>
+                    <a href="#servicos" class="botao-cta botao-cta--outline">Nossos serviços</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="diferenciais" aria-labelledby="titulo-diferenciais">
+            <div class="container">
+                <h2 id="titulo-diferenciais" class="visually-hidden">Por que nos escolher</h2>
+                <div class="grade-diferenciais">
+                    <article class="item-diferencial">
+                        <div class="icone-diferencial">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 8h6l-5 4 2 7-6-4-6 4 2-7-5-4h6l3-6z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                        </div>
+                        <h3>Experiência</h3>
+                        <p>Mais de duas décadas cuidando do seu visual com técnica e estilo.</p>
+                    </article>
+                    <article class="item-diferencial">
+                        <div class="icone-diferencial">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/></svg>
+                        </div>
+                        <h3>Atendimento premium</h3>
+                        <p>Conforto e qualidade em cada etapa do seu atendimento.</p>
+                    </article>
+                    <article class="item-diferencial">
+                        <div class="icone-diferencial">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z" fill="currentColor"/></svg>
+                        </div>
+                        <h3>Agendamento fácil</h3>
+                        <p>Escolha serviço, profissional, data e horário em poucos passos.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="servicos-destaque">
+            <div class="container">
+                <header class="secao-cabecalho">
+                    <h2>Serviços em destaque</h2>
+                    <p>Os mesmos serviços disponíveis no agendamento online — preços e descrições oficiais.</p>
+                </header>
+                <div class="grade-servicos grade-servicos--cards">
+                    <article class="cartao-servico cartao-servico--imagem">
+                        <div class="cartao-servico__media" style="background-image: url('https://images.unsplash.com/photo-1560869713-da86aeead97a?w=800&q=80');"></div>
+                        <div class="cartao-servico__corpo">
+                            <h3>Corte</h3>
+                            <p>Cortes modernos e clássicos</p>
+                            <div class="cartao-servico__rodape">
+                                <span class="cartao-servico__preco">R$ 50,00</span>
+                                <a href="#agendar" class="link-agendar">Agendar</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="cartao-servico cartao-servico--imagem">
+                        <div class="cartao-servico__media" style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80');"></div>
+                        <div class="cartao-servico__corpo">
+                            <h3>Mecha</h3>
+                            <p>Mechas californianas e coloração</p>
+                            <div class="cartao-servico__rodape">
+                                <span class="cartao-servico__preco">R$ 80,00</span>
+                                <a href="#agendar" class="link-agendar">Agendar</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="cartao-servico cartao-servico--imagem">
+                        <div class="cartao-servico__media" style="background-image: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=80');"></div>
+                        <div class="cartao-servico__corpo">
+                            <h3>Progressiva</h3>
+                            <p>Alisamento e progressiva premium</p>
+                            <div class="cartao-servico__rodape">
+                                <span class="cartao-servico__preco">R$ 120,00</span>
+                                <a href="#agendar" class="link-agendar">Agendar</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="cartao-servico cartao-servico--imagem">
+                        <div class="cartao-servico__media" style="background-image: url('https://images.unsplash.com/photo-1562322140-8baeececf3df?w=800&q=80');"></div>
+                        <div class="cartao-servico__corpo">
+                            <h3>Realinhamento Térmico</h3>
+                            <p>Para cabelos lisos e brilhosos</p>
+                            <div class="cartao-servico__rodape">
+                                <span class="cartao-servico__preco">R$ 100,00</span>
+                                <a href="#agendar" class="link-agendar">Agendar</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="faixa-cta" aria-labelledby="titulo-cta">
+            <div class="container faixa-cta__inner">
+                <h2 id="titulo-cta">Pronta para renovar o visual?</h2>
+                <p>Reserve seu horário com a equipe do Studio By Wislthon.</p>
+                <a href="#agendar" class="botao-cta botao-cta--invertido">Fazer agendamento</a>
+            </div>
+        </section>
+
+        <section id="sobre" class="sobre">
+            <div class="container sobre__grid">
+                <div class="sobre__texto">
+                    <h2>Sobre o estúdio</h2>
+                    <p>O <strong>Studio By Wislthon</strong> reúne experiência e atualização constante em cortes, mechas, progressivas e tratamentos capilares. Nosso foco é resultado natural, saúde do fio e um atendimento que faz você se sentir em casa.</p>
+                    <p>Com <strong>23 anos de experiência</strong>, cada visita é pensada para o seu perfil — do diagnóstico ao acabamento final.</p>
+                </div>
+                <div class="sobre__imagens">
+                    <div class="sobre__img sobre__img--1" role="img" aria-label="Ambiente do salão"></div>
+                    <div class="sobre__img sobre__img--2" role="img" aria-label="Atendimento capilar"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="agendar" class="secao-agendamento">
+            <div class="container">
+                <header class="secao-cabecalho secao-cabecalho--escuro">
+                    <h2>Agendar horário</h2>
+                    <p>Siga os passos para concluir seu agendamento. Os horários já reservados aparecem indisponíveis automaticamente.</p>
+                </header>
+
+                <div class="painel-agendamento">
+                    <div class="cabecalho-modal">
+                        <h2 class="titulo-painel">Novo agendamento</h2>
+                    </div>
+
+                    <div class="barra-progresso barra-progresso--linear" role="navigation" aria-label="Etapas do agendamento">
+                        <div class="item-progresso ativo" id="progresso-1">
+                            <div class="ponto-progresso">1</div>
+                            <div class="label-progresso">Serviço</div>
+                        </div>
+                        <div class="progresso-entre" id="entre-1"></div>
+                        <div class="item-progresso" id="progresso-2">
+                            <div class="ponto-progresso">2</div>
+                            <div class="label-progresso">Profissional</div>
+                        </div>
+                        <div class="progresso-entre" id="entre-2"></div>
+                        <div class="item-progresso" id="progresso-3">
+                            <div class="ponto-progresso">3</div>
+                            <div class="label-progresso">Data</div>
+                        </div>
+                        <div class="progresso-entre" id="entre-3"></div>
+                        <div class="item-progresso" id="progresso-4">
+                            <div class="ponto-progresso">4</div>
+                            <div class="label-progresso">Horário</div>
+                        </div>
+                        <div class="progresso-entre" id="entre-4"></div>
+                        <div class="item-progresso" id="progresso-5">
+                            <div class="ponto-progresso">5</div>
+                            <div class="label-progresso">Confirmar</div>
+                        </div>
+                    </div>
+
+                    <div class="corpo-modal">
+                        <form id="formAgendamento" novalidate>
+                            {% csrf_token %}
+                            <div class="etapa ativa" id="etapa-1">
+                                <h3 class="titulo-etapa">Escolha um Serviço</h3>
+                                <div class="opcao-servico" onclick="selecionarServico('corte', 'Corte', 'R$ 50,00', this)">
+                                    <div class="info-servico">
+                                        <h3>Corte</h3>
+                                        <p>Cortes modernos e clássicos</p>
+                                    </div>
+                                    <div class="preco-servico">R$ 50,00</div>
+                                </div>
+                                <div class="opcao-servico" onclick="selecionarServico('mecha', 'Mecha', 'R$ 80,00', this)">
+                                    <div class="info-servico">
+                                        <h3>Mecha</h3>
+                                        <p>Mechas californianas e coloração</p>
+                                    </div>
+                                    <div class="preco-servico">R$ 80,00</div>
+                                </div>
+                                <div class="opcao-servico" onclick="selecionarServico('progressiva', 'Progressiva', 'R$ 120,00', this)">
+                                    <div class="info-servico">
+                                        <h3>Progressiva</h3>
+                                        <p>Alisamento e progressiva premium</p>
+                                    </div>
+                                    <div class="preco-servico">R$ 120,00</div>
+                                </div>
+                                <div class="opcao-servico" onclick="selecionarServico('realinhamento', 'Realinhamento Térmico', 'R$ 100,00', this)">
+                                    <div class="info-servico">
+                                        <h3>Realinhamento Térmico</h3>
+                                        <p>Para cabelos lisos e brilhosos</p>
+                                    </div>
+                                    <div class="preco-servico">R$ 100,00</div>
+                                </div>
+                            </div>
+
+                            <div class="etapa" id="etapa-2">
+                                <h3 class="titulo-etapa">Escolha um Profissional</h3>
+                                <div class="cartao-profissional" onclick="selecionarProfissional('Wislthon', 'W', 'Profissional com 23 anos de experiência', this)">
+                                    <div class="avatar-profissional">W</div>
+                                    <div class="info-profissional">
+                                        <h3>Wislthon</h3>
+                                        <p>Segunda a Domingo</p>
+                                    </div>
+                                </div>
+                                <div class="cartao-profissional" onclick="selecionarProfissional('Assistente 1', 'A1', 'Especialista em cortes e mechas', this)">
+                                    <div class="avatar-profissional">A1</div>
+                                    <div class="info-profissional">
+                                        <h3>Assistente 1</h3>
+                                        <p>Segunda, Terça e Domingo</p>
+                                    </div>
+                                </div>
+                                <div class="cartao-profissional" onclick="selecionarProfissional('Assistente 2', 'A2', 'Especialista em progressivas', this)">
+                                    <div class="avatar-profissional">A2</div>
+                                    <div class="info-profissional">
+                                        <h3>Assistente 2</h3>
+                                        <p>Segunda a Quarta e Domingo</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="etapa" id="etapa-3">
+                                <h3 class="titulo-etapa">Escolha uma Data</h3>
+                                <div class="calendario">
+                                    <div class="cabecalho-calendario">
+                                        <button type="button" onclick="mesPrevio()">←</button>
+                                        <h3 id="mesAno"></h3>
+                                        <button type="button" onclick="proximoMes()">→</button>
+                                    </div>
+                                    <div class="dias-semana">
+                                        <div class="dia-semana">Dom</div>
+                                        <div class="dia-semana">Seg</div>
+                                        <div class="dia-semana">Ter</div>
+                                        <div class="dia-semana">Qua</div>
+                                        <div class="dia-semana">Qui</div>
+                                        <div class="dia-semana">Sex</div>
+                                        <div class="dia-semana">Sab</div>
+                                    </div>
+                                    <div class="datas" id="containerDatas"></div>
+                                </div>
+                            </div>
+
+                            <div class="etapa" id="etapa-4">
+                                <h3 class="titulo-etapa">Escolha um Horário</h3>
+                                <div class="periodo-tempo">
+                                    <h4>Manhã: 09:00 - 12:00</h4>
+                                    <div class="slots-tempo">
+                                        <div class="slot-tempo">09:00</div>
+                                        <div class="slot-tempo">09:30</div>
+                                        <div class="slot-tempo">10:00</div>
+                                        <div class="slot-tempo">10:30</div>
+                                        <div class="slot-tempo">11:00</div>
+                                        <div class="slot-tempo">11:30</div>
+                                    </div>
+                                </div>
+                                <div class="periodo-tempo">
+                                    <h4>Tarde: 14:00 - 18:00</h4>
+                                    <div class="slots-tempo">
+                                        <div class="slot-tempo">14:00</div>
+                                        <div class="slot-tempo">14:30</div>
+                                        <div class="slot-tempo">15:00</div>
+                                        <div class="slot-tempo">15:30</div>
+                                        <div class="slot-tempo">16:00</div>
+                                        <div class="slot-tempo">16:30</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="etapa" id="etapa-5">
+                                <h3 class="titulo-etapa">Confirme seu Agendamento</h3>
+                                <div class="caixa-confirmacao">
+                                    <div class="item-confirmacao">
+                                        <span class="label-confirmacao">Serviço:</span>
+                                        <span class="valor-confirmacao" id="confirmar-servico">-</span>
+                                    </div>
+                                    <div class="item-confirmacao">
+                                        <span class="label-confirmacao">Profissional:</span>
+                                        <span class="valor-confirmacao" id="confirmar-profissional">-</span>
+                                    </div>
+                                    <div class="item-confirmacao">
+                                        <span class="label-confirmacao">Data:</span>
+                                        <span class="valor-confirmacao" id="confirmar-data">-</span>
+                                    </div>
+                                    <div class="item-confirmacao">
+                                        <span class="label-confirmacao">Horário:</span>
+                                        <span class="valor-confirmacao" id="confirmar-horario">-</span>
+                                    </div>
+                                </div>
+
+                                <div class="grupo-formulario">
+                                    <label for="nome-final">Nome Completo</label>
+                                    <input type="text" id="nome-final" name="nome" placeholder="Seu nome completo">
+                                </div>
+                                <div class="grupo-formulario">
+                                    <label for="email-final">Email</label>
+                                    <input type="email" id="email-final" name="email" placeholder="seu@email.com">
+                                </div>
+                                <div class="grupo-formulario">
+                                    <label for="telefone-final">Telefone</label>
+                                    <input type="tel" id="telefone-final" name="telefone" placeholder="(XX) XXXXX-XXXX">
+                                </div>
+                                <div class="grupo-formulario">
+                                    <label for="notas-final">Observações (Opcional)</label>
+                                    <textarea id="notas-final" name="notas" placeholder="Deixe aqui qualquer observação importante" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="rodape-modal">
+                        <button class="botao botao-secundario" type="button" onclick="etapaAnterior()">← Voltar</button>
+                        <button class="botao botao-primario" id="botaoProximo" type="button" onclick="proximaEtapa()">Próximo →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="meus-agendamentos" class="meus-agendamentos" aria-labelledby="titulo-meus-agendamentos">
+            <div class="container">
+                <header class="secao-cabecalho">
+                    <h2 id="titulo-meus-agendamentos">Meus agendamentos</h2>
+                    <p>Use o mesmo e-mail cadastrado na hora da reserva para listar seus horários. Você pode excluir um agendamento se não precisar mais dele.</p>
+                </header>
+
+                <div class="painel-meus-agendamentos">
+                    <div class="grupo-formulario grupo-formulario--inline">
+                        <label for="email-meus-agendamentos">E-mail</label>
+                        <div class="linha-busca-agendamentos">
+                            <input type="email" id="email-meus-agendamentos" name="email_meus" autocomplete="email" placeholder="seu@email.com">
+                            <button type="button" class="botao botao-primario" id="btnBuscarMeusAgendamentos">Buscar</button>
+                        </div>
+                    </div>
+                    <p class="msg-meus-agendamentos" id="msgMeusAgendamentos" role="status" hidden></p>
+                    <div class="lista-meus-agendamentos" id="listaMeusAgendamentos" aria-live="polite"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contato">
+            <div class="container">
+                <header class="secao-cabecalho">
+                    <h2>Contato</h2>
+                    <p>Fale com o Studio By Wislthon para dúvidas sobre serviços e horários.</p>
+                </header>
+                <div class="conteudo-contato">
+                    <div class="info-contato">
+                        <div class="item-info">
+                            <h3>Horário</h3>
+                            <p>Segunda a sábado, conforme disponibilidade no agendamento. Domingos com equipe reduzida — consulte calendário.</p>
+                        </div>
+                        <div class="item-info">
+                            <h3>Administrativo</h3>
+                            <p>Para gestão de reservas e cadastros, utilize o painel <a href="/admin" target="_blank" rel="noopener">Admin</a> (acesso restrito).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="container rodape__grid">
+            <div class="rodape__marca">
+                <strong>Studio By Wislthon</strong>
+                <p>Agendamento online e atendimento personalizado.</p>
+            </div>
+            <div class="rodape__links">
+                <span class="rodape__titulo">Navegação</span>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#agendar">Agendar</a></li>
+                    <li><a href="#meus-agendamentos">Meus agendamentos</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="rodape__links">
+                <span class="rodape__titulo">Sistema</span>
+                <ul>
+                    <li><a href="/admin" target="_blank" rel="noopener">Painel administrativo</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="rodape__copy">&copy; Studio By Wislthon. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="{% static 'agendamentos/script.js' %}"></script>
+</body>
+</html>
