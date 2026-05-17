@@ -21,7 +21,7 @@ Este é um projeto de aplicação web desenvolvido para a disciplina de **Códig
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/SEU_USUARIO/studio_wislthon.git
+   git clone https://github.com/carlos-gds/studio_wislthon.git
    cd studio_wislthon
    ```
 
